@@ -13,6 +13,12 @@ class OctagonDrawer {
         int rowsToDraw;
 
     public:
+        Octagon();
+        Octagon(const int sidePar); //const is read only, cannot change
+        void setSide(const int sidePar);
+        int getside() const; 
+        void display(const int sidePar);
+
 
 
 

@@ -1,3 +1,4 @@
+#include "OctagonDrawer.h"
 #include <iostream>
 
 using namespace std;

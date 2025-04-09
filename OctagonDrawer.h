@@ -19,9 +19,6 @@ class OctagonDrawer {
         int getside() const; 
         void display(const int sidePar);
 
-
-
-
 };
 
 #endif // !_OCTAGON

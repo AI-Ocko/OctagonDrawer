@@ -32,6 +32,9 @@ int OctagonDrawer::getside() const {
     return side;
 }
 
+void OctagonDrawer::display(const int sidePar) {
+
+}
 
 int main () {
 

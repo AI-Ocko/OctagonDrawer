@@ -34,7 +34,7 @@ int OctagonDrawer::getside() const {
 
 void OctagonDrawer::display(const int sidePar) {
     if (sidePar < 3 || sidePar > 8) {
-        cout << "THe side value must be between 3 and 8" << endl;
+        cout << "The side value must be between 3 and 8" << endl;
     }
     else {
         string output = ""; //clear the output
@@ -43,6 +43,7 @@ void OctagonDrawer::display(const int sidePar) {
         starsDrawn = 0;
         spacesOut = side - 1;
         spacesIn = 0;
+        rowsDrawn = 0;
         rowsToDraw = 2 * side + (side - 2);
 
         while (rowsDrawn < rowsToDraw)
@@ -54,7 +55,7 @@ void OctagonDrawer::display(const int sidePar) {
                 while (spacesDrawn < spacesOut) 
                 {
                     output = output + " ";
-                    spacesDrawn ++;
+                    spacesDrawn += 1;
                 }
 
                 starsDrawn = 0;
@@ -63,12 +64,12 @@ void OctagonDrawer::display(const int sidePar) {
                 while (starsDrawn < side)
                 {
                     output = output + "*";
-                    starsDrawn ++;
+                    starsDrawn +=1;
                 }
                 //get ready for the next iteration
                 spacesOut --;
                 spacesIn = side;
-                rowsDrawn ++;
+                rowsDrawn +=1;
                 output = output + "\n";
             }
 
@@ -78,7 +79,7 @@ void OctagonDrawer::display(const int sidePar) {
 
                 while (spacesDrawn < spacesOut) {
                     output = output + " ";
-                    spacesDrawn ++;
+                    spacesDrawn += 1;
                 }
 
                 output = output + "*";
@@ -91,9 +92,9 @@ void OctagonDrawer::display(const int sidePar) {
                 }
                 
                 output = output + "*";
-                spacesOut --;
+                spacesOut -= 1;
                 spacesIn += 2;
-                rowsDrawn ++;
+                rowsDrawn += 1;
                 output = output + "\n";
             }
 
@@ -105,12 +106,12 @@ void OctagonDrawer::display(const int sidePar) {
                 while (spacesDrawn < 2 * side + (side -4))
                 {
                     output = output + " ";
-                    spacesDrawn ++;
+                    spacesDrawn += 1;
                 }
 
                 output = output + "*";
                 spacesOut = 1;
-                rowsDrawn ++;
+                rowsDrawn += 1;
                 output = output + "\n";
                 
             }            
@@ -121,19 +122,19 @@ void OctagonDrawer::display(const int sidePar) {
                 while (spacesDrawn < spacesOut)
                 {
                     output = output + " ";
-                    spacesDrawn ++;
+                    spacesDrawn += 1;
                 }
                 output = output + "*";
                 spacesDrawn = 0;
                 while (spacesDrawn < spacesIn - 4)
                 {
                     output = output + " ";
-                    spacesDrawn++;
+                    spacesDrawn += 1;
                 }
                 output = output + "*";
-                spacesOut ++;
+                spacesOut += 1;
                 spacesIn -= 2;
-                rowsDrawn ++;
+                rowsDrawn += 1;
                 output = output + "\n";
                 
             }
@@ -144,25 +145,37 @@ void OctagonDrawer::display(const int sidePar) {
                 while (spacesDrawn < spacesOut)
                 {
                     output = output + " ";
-                    spacesDrawn ++;
+                    spacesDrawn += 1;
                 }
                 starsDrawn = 0;
                 while (starsDrawn < side)
                 {
                     output = output + "*";
-                    starsDrawn ++;
+                    starsDrawn += 1;
                 }
-                rowsDrawn ++;
+                rowsDrawn += 1;
                 
             }
             
-        }   
+        }
+        cout << endl << output << endl;
 
     }
 
 }
 
 int main () {
+    //declarations
+    int side;
+    OctagonDrawer myOctagon;
 
+    //get user input 
+    cout << "Enter the octagon side value: ";
+    cin >> side;
+
+    myOctagon.setSide(side);
+    myOctagon.display(side);
+
+    
     return 0;
 }
